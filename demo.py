@@ -1,5 +1,8 @@
 # coding: utf-8
 
-d = {'a':1, 'b':1}
-d.pop('a')
-print len(d)
+a = [1,2,4,3]
+print list(reversed(a))
+
+a = [1,2,3]
+b = [4,5,6]
+print a+b
