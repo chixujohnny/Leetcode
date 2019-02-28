@@ -56,5 +56,5 @@ class Solution(object):
 
 
 s = Solution()
-# print s.canJump_best_answer([2,3,1,1,4])
+print s.canJump_best_answer([2,3,1,1,4])
 print s.canJump_best_answer([3,2,1,0,4])
