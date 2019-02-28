@@ -22,5 +22,7 @@ class Solution(object):
 
         return h
 
+
+
 s = Solution()
 print s.hIndex([3,0,6,1,5])
