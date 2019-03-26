@@ -1,4 +1,5 @@
 # coding: utf-8
 
 s = 'leetcode'
-print s.split('')
+s = sorted(s)
+print ''.join(s)
