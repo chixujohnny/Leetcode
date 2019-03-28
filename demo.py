@@ -1,5 +1,3 @@
 # coding: utf-8
 
-s = 'leetcode'
-s = sorted(s)
-print ''.join(s)
+print 27/26
