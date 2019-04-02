@@ -1,3 +1,8 @@
 # coding: utf-8
 
-print 27/26
+a = 'a'
+b = 'b'
+c = ' '
+d = a + c*10
+e = d+b
+print e
