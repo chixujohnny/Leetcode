@@ -7,12 +7,16 @@
 #     print 'ok'
 
 
-lines = open('/Users/chixu.cx/Desktop/亲子case.csv').readlines()  # ['1  2  4','1  3  5']
-for line in lines:
-    try:
-        item = line.split('\t')[2]
-        item = item.replace('\n','')
-        if float(item) > 0.9:
-            print item
-    except:
-        continue
+import numpy as np
+import keras
+from sklearn.preprocessing import LabelEncoder
+
+a = ['apple','banana','banana','tomato','carrot']
+encoder = LabelEncoder()
+encoder.fit(a)
+a_encoder = encoder.transform(a)
+print a_encoder
+num_classes = np.max(a_encoder)+1
+print num_classes
+a_encoder = keras.utils.to_categorical(a_encoder, num_classes)
+print a_encoder

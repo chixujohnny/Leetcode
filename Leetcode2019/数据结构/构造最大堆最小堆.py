@@ -86,4 +86,4 @@ def build_heap(tree, n):
     i = parent_node
     while i >= 0:
         heapify(tree, n, parent_node)
-        i -= 1
+        i -= 11
