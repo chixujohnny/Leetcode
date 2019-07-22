@@ -23,7 +23,7 @@ class Solution(object):
         v1, v2 = version1.split('.'), version2.split('.')
         len_diff = abs(len(v1) - len(v2))  # 版本号位数差
 
-        #  小版本号个数不一致的，补齐小版本号个数，位数少的补'0'
+        #  小版本号个数不一致的，补齐小版本号个数，位数少的补 '0'
         if len_diff != 0:
             for i in range(len_diff):
                 if len(v1) < len(v2):

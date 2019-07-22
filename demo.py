@@ -7,16 +7,18 @@
 #     print 'ok'
 
 
-import numpy as np
-import keras
-from sklearn.preprocessing import LabelEncoder
+# import numpy as np
+# import keras
+# from sklearn.preprocessing import LabelEncoder
 
-a = ['apple','banana','banana','tomato','carrot']
-encoder = LabelEncoder()
-encoder.fit(a)
-a_encoder = encoder.transform(a)
-print a_encoder
-num_classes = np.max(a_encoder)+1
-print num_classes
-a_encoder = keras.utils.to_categorical(a_encoder, num_classes)
-print a_encoder
+# a = ['apple','banana','banana','tomato','carrot']
+# encoder = LabelEncoder()
+# encoder.fit(a)
+# a_encoder = encoder.transform(a)
+# print a_encoder
+# num_classes = np.max(a_encoder)+1
+# print num_classes
+# a_encoder = keras.utils.to_categorical(a_encoder, num_classes)
+# print a_encoder
+
+print [1] + [0,0,0,0]
