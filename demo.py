@@ -21,4 +21,9 @@
 # a_encoder = keras.utils.to_categorical(a_encoder, num_classes)
 # print a_encoder
 
-print [1] + [0,0,0,0]
+# print [1] + [0,0,0,0]
+
+a = [2,3,4]
+a.append(None)
+a.append(3)
+print a
