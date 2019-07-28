@@ -23,7 +23,9 @@
 
 # print [1] + [0,0,0,0]
 
-a = [2,3,4]
-a.append(None)
-a.append(3)
-print a
+# a = [2,3,4]
+# a.append(None)
+# a.append(3)
+# print a
+
+print [4,3,4,5] + [0]
