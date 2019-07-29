@@ -28,4 +28,5 @@
 # a.append(3)
 # print a
 
-print [4,3,4,5] + [0]
+# print [4,3,4,5] + [0]
+print sum([1,2,3,4])
