@@ -13,6 +13,7 @@ class Solution(object):
         """
 
         res = []
+        parent_part = 'left'
 
         def helper(root, level):
             if root == None:
@@ -21,14 +22,13 @@ class Solution(object):
             if len(res) == level:
                 res.append([])
 
-            res[level].append(root.val)
-
-            if level % 2 == 1:
-                helper(root.left, level + 1)
-                helper(root.right, level + 1)
+            if level % 2 == 0:
+                res[level] = [root.val] + res[level]
             else:
-                helper(root.right, level + 1)
-                helper(root.left, level + 1)
+                res[level].append(root.val)
+
+            helper(root.right, level + 1)
+            helper(root.left, level + 1)
 
         helper(root, 0)
 
