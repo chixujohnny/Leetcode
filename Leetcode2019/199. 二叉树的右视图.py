@@ -6,10 +6,10 @@
 #         self.right = None
 
 class Solution(object):
-    def zigzagLevelOrder(self, root):
+    def rightSideView(self, root):
         """
         :type root: TreeNode
-        :rtype: List[List[int]]
+        :rtype: List[int]
         """
 
         res = []
@@ -21,14 +21,15 @@ class Solution(object):
             if len(res) == level:
                 res.append([])
 
-            if level % 2 == 0:
-                res[level] = [root.val] + res[level]
-            else:
-                res[level].append(root.val)
+            res[level] = [root.val] + res[level]
 
             helper(root.right, level + 1)
             helper(root.left, level + 1)
 
         helper(root, 0)
 
-        return res
+        ret = []
+        for l in res:
+            ret.append(l[-1])
+
+        return ret
