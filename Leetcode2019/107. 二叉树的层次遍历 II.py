@@ -6,7 +6,7 @@
 #         self.right = None
 
 class Solution(object):
-    def levelOrder(self, root):
+    def levelOrderBottom(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
@@ -28,4 +28,4 @@ class Solution(object):
 
         helper(root, 0)
 
-        return res
+        return reversed(res)

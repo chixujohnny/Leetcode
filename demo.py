@@ -29,4 +29,11 @@
 # print a
 
 # print [4,3,4,5] + [0]
-print sum([1,2,3,4])
+# print sum([1,2,3,4])
+
+# print [[]] + [[1,2,3]]
+
+# a = [[1],[2],[3]]
+a = [1,2,3]
+a = a.reverse()
+print a
