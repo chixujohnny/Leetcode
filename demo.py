@@ -33,7 +33,26 @@
 
 # print [[]] + [[1,2,3]]
 
-# a = [[1],[2],[3]]
-a = [1,2,3]
-a = a.reverse()
-print a
+# # a = [[1],[2],[3]]
+# a = [1,2,3]
+# a = a.reverse()
+# print a
+
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+head = ListNode(1)
+head.next = ListNode(2)
+head.next.next = ListNode(3)
+head.next.next.next = ListNode(4)
+
+head_slow = head
+head_fast = head
+
+while head_fast != None and head_fast.next != None:
+    head_slow = head_slow.next
+    head_fast = head_fast.next.next
+
+print head_slow.val
