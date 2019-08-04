@@ -57,4 +57,8 @@
 #
 # print head_slow.val
 
-print [1,2,3].append([1])
+# print [1,2,3].append([1])
+
+a = [[1], [2]]
+b = [3]
+print a.append(b[:])
