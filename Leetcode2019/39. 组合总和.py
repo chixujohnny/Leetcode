@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Solution(object):
     def combinationSum(self, candidates, target):
         """
@@ -22,3 +24,8 @@ class Solution(object):
         helper(candidates, target, [])
 
         return res
+
+
+
+s = Solution()
+print s.combinationSum([2,3,6,7], 7)
