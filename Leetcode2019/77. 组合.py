@@ -42,10 +42,36 @@ class Solution(object):
                 pre.pop()
 
 
+    def combine2(self, n, k):   #  我写的第二种解法，看着好理解一些
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+
+        res = []
+
+        def helper(n, k, path, start):
+            if len(path) == k:
+                res.append(path[:])
+
+            for i in range(start, n):
+                if len(path) <= k:
+                    path.append(i + 1)
+                    helper(n, k, path, i + 1)
+                    path.pop()
+
+        helper(n, k, [], 0)
+
+        return res
+
+
         ret = []
         recursive(n, k, ret)
 
         return ret
+
+
 
 s = Solution()
 x = s.combine(4, 2)
