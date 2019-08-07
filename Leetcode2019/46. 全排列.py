@@ -6,15 +6,23 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        #  回溯法，此题比较难
-        if len(nums) == 1:
-            return [nums]
-        result = []
-        for index in range(len(nums)):
-            for item in self.permute(nums[:index] + nums[index+1:]):
-                result.append([nums[index]] + item)
 
-        return result
+        res = []
+
+        def helper(nums, path):
+
+            if nums == []:
+                res.append(path[:])
+                return
+
+            for i in range(len(nums)):
+                path.append(nums[i])
+                helper(nums[:i] + nums[i + 1:], path)
+                path.pop()
+
+        helper(nums, [])
+
+        return res
 
 s = Solution()
 print(s.permute([1,2,3]))

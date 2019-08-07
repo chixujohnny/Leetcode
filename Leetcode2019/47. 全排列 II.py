@@ -11,11 +11,14 @@ class Solution(object):
 
         def helper(nums, path):
 
-            if path not in nums:
+            if nums == [] and path not in res:
                 res.append(path[:])
+                return
 
             for i in range(len(nums)):
-                helper(nums.pop(i), path.append(nums[i]))
+                path.append(nums[i])
+                helper(nums[:i] + nums[i + 1:], path)
+                path.pop()
 
         helper(nums, [])
 
@@ -23,4 +26,4 @@ class Solution(object):
 
 
 s = Solution()
-s.permuteUnique([1,1,2])
+print s.permuteUnique([1,1,2])

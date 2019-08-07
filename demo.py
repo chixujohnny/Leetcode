@@ -101,15 +101,19 @@ import copy
 
 
 
-def function(nums, target):
-    dp = [0] * (target+1)
+# def function(nums, target):
+#     dp = [0] * (target+1)
+#
+#     dp[0] = 1
+#
+#     for i in range(1, target + 1):
+#         for j in range(len(nums)):
+#             if i >= nums[j]:
+#                 dp[i] += dp[i - nums[j]]
+#
+#
+# print function([1,2,3], 4)
 
-    dp[0] = 1
-
-    for i in range(1, target + 1):
-        for j in range(len(nums)):
-            if i >= nums[j]:
-                dp[i] += dp[i - nums[j]]
-
-
-print function([1,2,3], 4)
+nums = [1,2,3]
+i = 2
+print nums[:i] + nums[i+1:]
