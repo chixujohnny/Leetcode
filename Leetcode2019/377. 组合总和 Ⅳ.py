@@ -6,23 +6,16 @@ class Solution(object):
         :rtype: int
         """
 
-        res = []
+        dp = [0] * (target+1)
 
-        def helper(nums, target, total, path):
+        dp[0] = 1
 
-            if total == target:
-                res.append(path[:])
-                print path
-                # return
+        for i in range(1, target+1):
+            for j in range(len(nums)):
+                if i >= nums[j]:
+                    dp[i] += dp[i - nums[j]]
 
-            for i in range(len(nums)):
-
-                if total <= target:
-                    helper(nums, target, total + nums[i], path + [nums[i]])
-
-        helper(nums, target, 0, [])
-
-        return len(res)
+        return dp[-1]
 
 s = Solution()
 print s.combinationSum4([4,2,1], 32)
