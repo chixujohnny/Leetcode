@@ -114,6 +114,9 @@ import copy
 #
 # print function([1,2,3], 4)
 
-nums = [1,2,3]
-i = 2
-print nums[:i] + nums[i+1:]
+# nums = [1,2,3]
+# i = 2
+# print nums[:i] + nums[i+1:]
+
+dp = [[0]*10] * 3
+print dp
