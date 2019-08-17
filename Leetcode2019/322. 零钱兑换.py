@@ -16,7 +16,10 @@ class Solution(object):
                 if coin <= i:
                     dp[i] = min(dp[i], dp[i - coin] + 1)
 
-        return dp[-1]
+        if dp[-1] != float("inf"):
+            return dp[-1]
+        else:
+            return -1
 
 
 s = Solution()
