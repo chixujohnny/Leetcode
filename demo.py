@@ -118,5 +118,10 @@ import copy
 # i = 2
 # print nums[:i] + nums[i+1:]
 
-dp = [[0]*10] * 3
-print dp
+# dp = [[0]*10] * 3
+# print dp
+
+a = [[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","0","1"],["1","0","1","1","1"]]]
+for item in a:
+    item += item
+print item
