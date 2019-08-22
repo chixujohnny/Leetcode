@@ -6,10 +6,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if nums == []:
-          return 0
-        if len(nums) <= 2:
-          return max(nums)
 
         # 分两种情况
         dp = [0] * len(nums)
@@ -29,5 +25,5 @@ class Solution(object):
 
 
 s = Solution()
-# print s.rob([2,1,1,2])
-print s.rob([0])
+# s.rob([2,3,2])
+print s.rob([1,2,3,1])
