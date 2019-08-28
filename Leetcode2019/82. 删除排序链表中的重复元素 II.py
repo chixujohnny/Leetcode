@@ -20,7 +20,7 @@ class Solution(object):
         d = {}
         for item in l:
             if d.has_key(item) == False:
-                d[item] = 1
+                d[item] = 11
             else:
                 d[item] += 1
 
