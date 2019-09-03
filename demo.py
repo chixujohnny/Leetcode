@@ -126,6 +126,9 @@ import copy
 #     item += item
 # print item
 
-a = [1,2,3,4]
-a.reverse()
-print a
+# a = [1,2,3,4]
+# a.reverse()
+# print a
+
+
+print int(3.9)
