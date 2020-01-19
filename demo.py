@@ -131,4 +131,119 @@ import copy
 # print a
 
 
-print int(3.9)
+# import operator
+#
+#
+# def topNCompetitors(numCompetitors, topNCompetitors, competitors,
+#                     numReviews, reviews):
+#     # WRITE YOUR CODE HERE
+#
+#     # using hash-table
+#     competitors_dict = {}
+#     for item in competitors:
+#         competitors_dict[item] = 0
+#
+#     for review in reviews:
+#         review_list = review.split(' ')
+#
+#         already_in = []
+#         for word in review_list:
+#             if competitors_dict.has_key(word) and word not in already_in:
+#                 competitors_dict[word] += 1
+#                 already_in.append(word)
+#
+#     competitors_sort = sorted(competitors_dict.items(), key=operator.itemgetter(1), reverse=True)
+#
+#     ret = []
+#     count = -1
+#     for i, item in enumerate(competitors_sort):
+#         if item[1] != 0:
+#             if item[1] != count:
+#                 ret.append([])
+#             ret[-1].append(item[0])
+#
+#     # sort in dictionary
+#     for item in ret:
+#         item.sort()
+#
+#     # combine
+#     retret = []
+#     for item in ret:
+#         retret += item
+#
+#     return retret[:topNCompetitors]
+
+# print topNCompetitors(5, 2, ['a','b','c','d','e'], 3, ['jife ji shub fsd a','b jifr ajh he hd hs','a frji aehu joidf efde'])
+#
+# retret = []
+# a = ['a','b']
+# c = ['b','e','f']
+# print retret+a+c
+
+# competitors_dict = {'mymarket':4, 'shopnow':2, 'newshop':2}
+# competitors_sort = sorted(competitors_dict.items(), key=operator.itemgetter(1), reverse=True)
+#
+# ret = []
+# count = -1
+# for i, item in enumerate(competitors_sort):
+#     if item[1] != 0:
+#         if item[1] != count:
+#             ret.append([])
+#             count = item[1]
+#         ret[-1].append(item[0])
+#
+# # sort in dictionary
+# for item in ret:
+#     item.sort()
+#
+# # combine
+# retret = []
+# for item in ret:
+#     retret += item
+
+
+def minimumDays(rows, columns, grid):
+    # WRITE YOUR CODE HERE
+
+    # using BFS
+
+    dx = [1, -1, 0, 0]
+    dy = [0, 0, 1, -1]
+    serverList = []
+
+    for i in range(rows):
+        for j in range(columns):
+            if grid[i][j] == 1:
+                serverList.append([i, j])  # put servers into a queue
+
+    day = 0
+    while serverList != []:
+        newServerList = []
+
+        for serverNode in serverList:
+            x0 = serverNode[0]
+            y0 = serverNode[1]
+
+            # traversal 4 direcitons
+            for k in range(4):
+                x = x0 + dx[k]
+                y = y0 + dy[k]
+
+                if 0 <= x < rows and 0 <= y < columns and grid[x][y] == 0:
+                    grid[x][y] = 1
+                    newServerList.append([x, y])
+
+        if newServerList == []:
+            break
+
+        serverList = newServerList[:]
+        day += 1
+
+    for i in range(rows):
+        for j in range(columns):
+            if grid[i][j] == 0:
+                return -1
+
+    return day
+
+print minimumDays(4,5,[[0,1,1,0,1],[0,1,0,1,0],[0,0,0,0,1],[0,1,0,0,0]])
