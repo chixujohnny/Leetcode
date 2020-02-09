@@ -1,5 +1,7 @@
 # coding: utf-8
 
+from collections import defaultdict
+
 class Solution(object):
 
     #  这是我的答案，超时，结果没问题
