@@ -9,12 +9,6 @@
 #       再用分治思想，对key左边和右边的部分做Partition
 #       用递归解比较优雅
 
-def Change(l, key, index):
-    tag = l[key]
-    l[key] = l[index]
-    l[index] = tag
-    return l
-
 def QuickSort(l):
     if len(l) >= 2:  # 递归入口
         key = l[0]

@@ -202,48 +202,107 @@ import copy
 #     retret += item
 
 
-def minimumDays(rows, columns, grid):
-    # WRITE YOUR CODE HERE
+# def minimumDays(rows, columns, grid):
+#     # WRITE YOUR CODE HERE
+#
+#     # using BFS
+#
+#     dx = [1, -1, 0, 0]
+#     dy = [0, 0, 1, -1]
+#     serverList = []
+#
+#     for i in range(rows):
+#         for j in range(columns):
+#             if grid[i][j] == 1:
+#                 serverList.append([i, j])  # put servers into a queue
+#
+#     day = 0
+#     while serverList != []:
+#         newServerList = []
+#
+#         for serverNode in serverList:
+#             x0 = serverNode[0]
+#             y0 = serverNode[1]
+#
+#             # traversal 4 direcitons
+#             for k in range(4):
+#                 x = x0 + dx[k]
+#                 y = y0 + dy[k]
+#
+#                 if 0 <= x < rows and 0 <= y < columns and grid[x][y] == 0:
+#                     grid[x][y] = 1
+#                     newServerList.append([x, y])
+#
+#         if newServerList == []:
+#             break
+#
+#         serverList = newServerList[:]
+#         day += 1
+#
+#     for i in range(rows):
+#         for j in range(columns):
+#             if grid[i][j] == 0:
+#                 return -1
+#
+#     return day
+#
+# print minimumDays(4,5,[[0,1,1,0,1],[0,1,0,1,0],[0,0,0,0,1],[0,1,0,0,0]])
 
-    # using BFS
 
-    dx = [1, -1, 0, 0]
-    dy = [0, 0, 1, -1]
-    serverList = []
+# def Merge(left, right):
+#
+#     ret = []
+#     i, j = 0, 0
+#     while i<len(left) or j<len(right):
+#
+#         if i<len(left) and j<len(right):
+#             if left[i] <= right[j]:
+#                 ret.append(left[i])
+#                 i += 1
+#             else:
+#                 ret.append(right[j])
+#                 j += 1
+#
+#         elif i == len(left):
+#             ret.append(right[j])
+#             j += 1
+#         elif j == len(right):
+#             ret.append(left[i])
+#             i += 1
+#
+#     return ret
+#
+# def MergeSort(data):
+#
+#     if len(data)==1 or len(data)==0:
+#         return data
+#
+#     left  = MergeSort(data[:len(data)/2])
+#     right = MergeSort(data[len(data)/2:])
+#
+#     return Merge(left, right)
+#
+# data = [2,4,7,5,8,1,3,6]
+# print MergeSort(data)
 
-    for i in range(rows):
-        for j in range(columns):
-            if grid[i][j] == 1:
-                serverList.append([i, j])  # put servers into a queue
 
-    day = 0
-    while serverList != []:
-        newServerList = []
+def QuickSort(data):
 
-        for serverNode in serverList:
-            x0 = serverNode[0]
-            y0 = serverNode[1]
+    if len(data) < 2: # 递归出口
+        return data
 
-            # traversal 4 direcitons
-            for k in range(4):
-                x = x0 + dx[k]
-                y = y0 + dy[k]
+    else:
+        key = data[0]
+        left, right = [], []
+        data.remove(key)
 
-                if 0 <= x < rows and 0 <= y < columns and grid[x][y] == 0:
-                    grid[x][y] = 1
-                    newServerList.append([x, y])
+        for num in data:
+            if num < key:
+                left.append(num)
+            else:
+                right.append(num)
 
-        if newServerList == []:
-            break
+        return QuickSort(left) + [key] + QuickSort(right)
 
-        serverList = newServerList[:]
-        day += 1
-
-    for i in range(rows):
-        for j in range(columns):
-            if grid[i][j] == 0:
-                return -1
-
-    return day
-
-print minimumDays(4,5,[[0,1,1,0,1],[0,1,0,1,0],[0,0,0,0,1],[0,1,0,0,0]])
+data = [2,4,7,5,8,1,3,6]
+print QuickSort(data)
