@@ -25,6 +25,6 @@ def QuickSort(l):
 
 if __name__ == '__main__':
     # l = [6,2,7,3,8,9]
-    l = [9,8,7,6,5,4,3,2,1]
+    l = [9,8,7,6,5,4,3,12,1]
     l = QuickSort(l)
     print l
