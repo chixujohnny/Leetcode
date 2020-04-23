@@ -76,3 +76,72 @@ class Solution(object):
 s = Solution()
 x = s.combine(4, 2)
 print x
+
+
+
+
+
+
+
+class Solution(object):
+
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+
+        self.res = []
+
+        def helper(n, k, path, start):
+            if len(path) == k:
+                self.res.append(path[:])
+                return
+
+            for i in range(start, n+1):
+                if len(path) <= k:
+                    path.append(i)
+                    helper(n, k, path, i+1)
+                    path.pop()
+
+        helper(n, k, [], 1)
+
+        return self.res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
