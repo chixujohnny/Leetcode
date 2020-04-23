@@ -42,7 +42,9 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
+        self.res = []
 
+        def helper(k, n, path, start):
 
 
 
