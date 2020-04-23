@@ -27,3 +27,57 @@ class Solution(object):
 
 s = Solution()
 print s.combinationSum3(3, 7)
+
+
+
+
+
+
+class Solution(object):
+
+    def combinationSum3(self, k, n):
+        """
+        :type k: int
+        :type n: int
+        :rtype: List[List[int]]
+        """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
