@@ -74,3 +74,65 @@ print (s.nextPermutation([1,2,3]))
 print (s.nextPermutation([1,1,5]))
 print (s.nextPermutation([5,1,5]))
 print (s.nextPermutation([1]))
+
+
+
+class Solution(object):
+
+    def nextPermutation(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+
+        if len(nums) == 0 or len(nums) == 1:
+            return nums
+
+        def swap():
+            return
+
+        def reverse():
+            return
+
+        # step1:从后往前找第一对相邻升序的index
+        tag_index = -1
+        for i in range(len(nums), 1, -1):
+            if nums[i-1] < nums[i]:
+                tag_index = i-1
+                break
+
+        if tag_index == -1:
+            return reverse(nums)
+        else:
+            # 寻找在 tag_index+1 右侧比nums[tag_index]大的最小的一个index
+            min_num = float('inf')
+            # for i in range(len(nums), tag_index):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
