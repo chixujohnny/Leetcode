@@ -32,8 +32,45 @@ class Solution(object):
 
             for i in range(1, len(s)):
                 path += path + s[:i]
-                helper(s[i:], path)
+                s = s[i:]
+                helper(s, path)
+                s = path + s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 path = path[:-1]
+
 
         helper(s, '')
 
