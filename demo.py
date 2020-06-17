@@ -286,23 +286,26 @@ import copy
 # print MergeSort(data)
 
 
-def QuickSort(data):
+# def QuickSort(data):
+#
+#     if len(data) < 2: # 递归出口
+#         return data
+#
+#     else:
+#         key = data[0]
+#         left, right = [], []
+#         data.remove(key)
+#
+#         for num in data:
+#             if num < key:
+#                 left.append(num)
+#             else:
+#                 right.append(num)
+#
+#         return QuickSort(left) + [key] + QuickSort(right)
+#
+# data = [2,4,7,5,8,1,3,6]
+# print QuickSort(data)
 
-    if len(data) < 2: # 递归出口
-        return data
 
-    else:
-        key = data[0]
-        left, right = [], []
-        data.remove(key)
-
-        for num in data:
-            if num < key:
-                left.append(num)
-            else:
-                right.append(num)
-
-        return QuickSort(left) + [key] + QuickSort(right)
-
-data = [2,4,7,5,8,1,3,6]
-print QuickSort(data)
+print [[0]*6]*3
