@@ -34,9 +34,9 @@ class Solution(object):
         return False
 
 s = Solution()
-print s.exist([["a","b"],["c","d"]], "abcd")
-print s.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED")
-print s.exist([['a','a']], 'aa')
-print s.exist([['a','b']], 'ba')
-print s.exist([['a']], 'ab')
+# print s.exist([["a","b"],["c","d"]], "abcd")
+# print s.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED")
+# print s.exist([['a','a']], 'aa')
+# print s.exist([['a','b']], 'ba')
+# print s.exist([['a']], 'ab')
 print s.exist([["C","A","A"],["A","A","A"],["B","C","D"]], 'AAB')
