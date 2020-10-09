@@ -8,30 +8,27 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-    def maxDepth(self, root):
+    def mirrorTree(self, root):
         """
         :type root: TreeNode
-        :rtype: int
+        :rtype: TreeNode
         """
-
         if root == None:
-            return 0
-        if root.left == None and root.right == None:
-            return 1
+            return None
 
-        def helper(node, depth):
-            if node == None:
-                depth -= 1
-                return depth
-            left_depth = helper(node.left, depth+1)
-            right_depth = helper(node.right, depth+1)
-            depth = max(left_depth, right_depth)
-            return depth
+        def helper(root):
+            if root == None:
+                return
+            tag = root.right
+            root.right = root.left
+            root.left = tag
+            helper(root.left)
+            helper(root.right)
+            return root
 
-        return helper(root, 1)
+        return helper(root)
 
-
-treeList = [3,9,20,None,None,15,7]
+treeList = [4,2,7,1,3,6,9]
 def CreateBineryTree(root, treeList, i):
 
     if i < len(treeList):
@@ -45,6 +42,5 @@ def CreateBineryTree(root, treeList, i):
     return root
 root = CreateBineryTree(None, treeList, 0)
 
-
 s = Solution()
-print s.maxDepth(root)
+s.mirrorTree(root)
