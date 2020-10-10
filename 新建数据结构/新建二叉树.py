@@ -22,4 +22,4 @@ def CreateBineryTree(root, treeList, i):
             return root
     return root
 
-CreateBineryTree(None, treeList, 0)
+root = CreateBineryTree(None, treeList, 0)
