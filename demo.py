@@ -308,6 +308,7 @@ import copy
 # print QuickSort(data)
 
 
-print [[0]*6]*3
+B = None
 
-print round(3.99)
+if B == None:
+    print True
