@@ -308,7 +308,4 @@ import copy
 # print QuickSort(data)
 
 
-B = None
-
-if B == None:
-    print True
+print ord('a')
