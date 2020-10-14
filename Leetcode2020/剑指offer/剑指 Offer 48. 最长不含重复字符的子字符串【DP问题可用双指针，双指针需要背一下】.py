@@ -13,7 +13,7 @@ class Solution(object):
         i = -1
         for j in range(len(s)):
             if dic.has_key(s[j]) == True:
-                i = dic[s[j]]
+                i = max(dic[s[j]], i)
             dic[s[j]] = j
             res = max(res, j-i)
 
