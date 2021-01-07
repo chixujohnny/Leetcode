@@ -321,131 +321,133 @@ import copy
 # left = [0,3,4]  right = [1,2,5]
 # 中间可能混杂别的字符
 
-def function(str):
-
-    if str == '':
-        return 0
-
-    left = []
-    right = []
-    for i, item in enumerate(str):
-        if item == '(':
-            left.append(i)
-        if item == ')':
-            right.append(i)
-
-    # 找与左括号匹配的右括号
-    sum_num = 0
-    for i, l in enumerate(left):
-        for j, r in enumerate(right):
-            if l<r:
-                right[j] = -1
-                sum_num += 2
-                break
-
-    return len(left) + len(right) - sum_num
-
-
-
-
-
-
-
-
-# left = [...]
-# right = [...]
-
-def function(left, right):
-
-    if left == [] or right == []:
-        return []
-
-    # 判断大小list,打入dict
-    d = {}
-    if len(left) <= right:
-        for item in left:
-            if d.has_key(item) == False:
-                d[item] = 1
-        dictPart = 'left'
-    else:
-        for item in right:
-            if d.has_key(item) == False:
-                d[item] = 1
-        dictPart = 'right'
-
-    # 先写个比较笨的if else
-    res = []
-    if dictPart == 'left':
-        for item in right:
-            if d.has_key(item) == True and d[item] != 0:
-                res.append(item)
-                d[item] = 0
-    else:
-        for item in left:
-            if d.has_key(item) == True and d[item] != 0:
-                res.append(item)
-                d[item] = 0
-
-    return res
-
-
-
-print function([1,2,3,4,5,6,7,8,9], [1,2,2,2,2,2,2,3])
-
-
-
-
-
-
-
-
-#          -3           2 3 4                     13
-#       -4    -2 -1              6 7 8 9 10 11 12
-
-
-def function(left, right):
-
-    if left == [] or right == []:
-        return False
-
-    # 判断一下序列总长度奇偶
-    if (len(left)+len(right))%2 == 1:
-        jiFlag = True
-    else:
-        jiFlag = False
-    mid_index = len(left) + len(right) / 2
-
-    i = 0
-    j = 0
-    buffer_num = None
-    while i+j <= mid_index and i<len(left) and j<len(right):
-        if left[i] <= right[j]:
-            buffer_num = left[i]
-            i += 1
-        else:
-            buffer_num = right[j]
-            j += 1
-    # 某一个数组扫完了
-    if i+j <= mid_index and i == len(left)-1:  # 左数组扫完了
-        while i + j <= mid_index:
-            buffer_num = right[j]
-            j += 1
-    if i + j <= mid_index and i == len(right) - 1:  # 右数组扫完了
-        while i + j <= mid_index:
-            buffer_num = left[i]
-            i += 1
-
-    return buffer_num
-
-
-    # if jiFlag == True:
-    #     return buffer_num
-    # else:
-    #     left[i] <= right[j]:
-
-
+# def function(str):
+#
+#     if str == '':
+#         return 0
+#
+#     left = []
+#     right = []
+#     for i, item in enumerate(str):
+#         if item == '(':
+#             left.append(i)
+#         if item == ')':
+#             right.append(i)
+#
+#     # 找与左括号匹配的右括号
+#     sum_num = 0
+#     for i, l in enumerate(left):
+#         for j, r in enumerate(right):
+#             if l<r:
+#                 right[j] = -1
+#                 sum_num += 2
+#                 break
+#
+#     return len(left) + len(right) - sum_num
+#
+#
+#
+#
+#
+#
+#
+#
+# # left = [...]
+# # right = [...]
+#
+# def function(left, right):
+#
+#     if left == [] or right == []:
+#         return []
+#
+#     # 判断大小list,打入dict
+#     d = {}
+#     if len(left) <= right:
+#         for item in left:
+#             if d.has_key(item) == False:
+#                 d[item] = 1
+#         dictPart = 'left'
+#     else:
+#         for item in right:
+#             if d.has_key(item) == False:
+#                 d[item] = 1
+#         dictPart = 'right'
+#
+#     # 先写个比较笨的if else
+#     res = []
+#     if dictPart == 'left':
+#         for item in right:
+#             if d.has_key(item) == True and d[item] != 0:
+#                 res.append(item)
+#                 d[item] = 0
+#     else:
+#         for item in left:
+#             if d.has_key(item) == True and d[item] != 0:
+#                 res.append(item)
+#                 d[item] = 0
+#
+#     return res
+#
+#
+#
+# print function([1,2,3,4,5,6,7,8,9], [1,2,2,2,2,2,2,3])
+#
+#
+#
+#
+#
+#
+#
+#
+# #          -3           2 3 4                     13
+# #       -4    -2 -1              6 7 8 9 10 11 12
+#
+#
+# def function(left, right):
+#
+#     if left == [] or right == []:
+#         return False
+#
+#     # 判断一下序列总长度奇偶
+#     if (len(left)+len(right))%2 == 1:
+#         jiFlag = True
+#     else:
+#         jiFlag = False
+#     mid_index = len(left) + len(right) / 2
+#
+#     i = 0
+#     j = 0
+#     buffer_num = None
+#     while i+j <= mid_index and i<len(left) and j<len(right):
+#         if left[i] <= right[j]:
+#             buffer_num = left[i]
+#             i += 1
+#         else:
+#             buffer_num = right[j]
+#             j += 1
+#     # 某一个数组扫完了
+#     if i+j <= mid_index and i == len(left)-1:  # 左数组扫完了
+#         while i + j <= mid_index:
+#             buffer_num = right[j]
+#             j += 1
+#     if i + j <= mid_index and i == len(right) - 1:  # 右数组扫完了
+#         while i + j <= mid_index:
+#             buffer_num = left[i]
+#             i += 1
+#
+#     return buffer_num
+#
+#
+#     # if jiFlag == True:
+#     #     return buffer_num
+#     # else:
+#     #     left[i] <= right[j]:
 
 
+import numpy as np
+
+matrix = [[3,2,8],[5,9,7],[0,1,4]]
+print np.mat(matrix).T.tolist()
 
 
 
